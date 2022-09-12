@@ -28,7 +28,7 @@ def main
   loop do
     list_of_options
     option = gets.chomp.to_i
-    if(1..7).include?(option)
+    if (1..7).include?(option)
       actions(option, app)
     else
       puts 'Sorry, wrong option selected'
@@ -37,7 +37,7 @@ def main
     end
     break if option == 7
   end
-  
+
   puts 'Thanks for using the app!'
 end
 
