@@ -5,6 +5,6 @@ class App
   end
 
   def store_book(book)
-    do something with the book
+    # something with the book
   end
 end
