@@ -15,6 +15,8 @@ def actions(option, app)
   case option
   when 1
     puts 'Tests'
+  when 3
+    app.store_book(book)
   end
 end
 
