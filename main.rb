@@ -2,8 +2,8 @@ require_relative './app'
 
 def list_of_options
   puts 'Please choose an option by entering a number:'
-  puts '1'
-  puts '2'
+  puts '1 list all music albums'
+  puts '2 create a new music album'
   puts '3'
   puts '4'
   puts '5'
@@ -13,8 +13,8 @@ end
 
 def actions(option, _app)
   case option
-  when 1
-    puts 'Tests'
+  when 1 then list_music_albums
+  when 2 then add_music_album
   end
 end
 
@@ -37,6 +37,7 @@ def main
   end
 
   puts 'Thanks for using the app!'
+  save_albums(@albums)
 end
 
 main

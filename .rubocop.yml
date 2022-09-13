@@ -34,6 +34,10 @@ Style/DefWithParentheses:
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
 
+  Style/DisableCopsWithinSourceCodeDirective:
+  Enabled: true
+  IgnoredCops: ['Metrics/MethodLength', 'Metrics/AbcSize']
+
 Layout/HashAlignment:
   EnforcedColonStyle: key
 Layout/ExtraSpacing:
