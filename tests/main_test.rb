@@ -16,9 +16,9 @@ def actions(option, app)
   when 1
     app.list_all_books
   when 2
-    app.
+    app.list_labels
   when 3
-    app.add_book(book)
+    app.create_book
   end
 end
 

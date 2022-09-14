@@ -5,8 +5,8 @@ class Item
 
   attr_reader :id, :publish_date
 
-  def initialize(publish_date, id = Random.rand(1..10_000), archived: false)
-    @id = id
+  def initialize(publish_date, id, archived: false)
+    @id = Random.rand(1..10_000)
 
     @publish_date = Date.parse(publish_date)
 
