@@ -1,4 +1,5 @@
 require_relative './methods/book'
+require_relative './methods/label'
 require_relative './app-methods/books_actions'
 require_relative './app-methods/label_actions'
 require_relative './data-functions/book_data'
