@@ -25,13 +25,13 @@ require_relative './app-methods/music_genre_module'
 require_relative './utils/call_others'
 
 class App
-  attr_accessor :games, :authors, :books, :labels
+  attr_accessor :games, :authors, :books, :labels, :music_albums, :genres
 
   def initialize
     @books = []
     @labels = []
     @games = []
-    @music_album = []
+    @music_albums = []
     @genres = []
     @authors = []
 
@@ -47,20 +47,20 @@ class App
   include BooksActions
   include LabelActions
 
-  include MusicAlbumJson
   include MusicGenreModule
-  include GenreJson
+  # include GenreJson
 
   def save_data
     save_books(@books)
     save_labels(@labels)
+    save_music_albums(@music_albums)
   end
 
   def load_data
     @books = load_books
     @labels = load_labels
-    @music_album = load_music_albums
-    @genres = load_genres
+    @music_albums = load_music_albums
+    # @genres = load_genres
   end
 
   # def save_data(data_array, _file_name)

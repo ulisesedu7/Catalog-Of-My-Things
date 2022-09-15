@@ -1,25 +1,34 @@
 require_relative '../methods/music_album'
-require 'json'
+require_relative '../utils/update_file'
 
-module MusicAlbumJson
-  def load_music_albums
-    data = []
-    file = '{PATH_TO_JSON}music_albums.json'
+def save_music_albums(music_albums)
+  music_album_data = []
 
-    if File.exist?(file) && File.read(file) != ''
-      JSON.parse(File.read(file)).each do |music_album|
-        music_album = JSON.parse(music_album)
-        obj = MusicAlbum.new(music_album['publish_date'], music_album['on_spotify'], music_album['id'],
-                             archived: music_album['archived'])
-        obj.title = music_album['title']
-
-        obj.add_label(find_label(music_album['label']['id'])) if music_album['label']
-        obj.add_author(find_author(music_album['author']['id'])) if music_album['author']
-        obj.add_genre(find_genre(music_album['genre']['id'])) if music_album['genre']
-
-        data << obj
-      end
-    end
-    data
+  music_albums.each do |music_album|
+    music_album_data.push({
+      publish_date: music_album.publish_date,
+      on_spotify: music_album.on_spotify,
+      title: music_album.title
+    })
   end
+
+  update_file('music_albums', music_album_data)
+end
+
+def load_music_albums
+  loaded_albums = []
+
+  unless File.zero?('./data-storage/music_albums.json')
+    music_albums_file = File.open('./data-storage/music_albums.json')
+    hash_albums = JSON.parse(music_albums_file.read)
+  end
+
+  unless hash_albums.empty?
+    hash_albums.each do |album|
+      loaded_albums << MusicAlbum.new(album['publish_date'], album['on_spotify'], album['title'])
+    end
+    music_albums_file.close
+  end
+
+  loaded_albums
 end

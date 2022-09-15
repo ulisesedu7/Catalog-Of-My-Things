@@ -21,11 +21,11 @@ def actions(option, app)
   when 1
     app.list_all_books
   when 2
-    puts 'List all music albums'
+    app.list_music_albums
   when 3
     app.game_display
   when 4
-    puts 'List all genres'
+    app.list_genres
   when 5
     app.list_labels
   when 6
@@ -33,7 +33,7 @@ def actions(option, app)
   when 7
     app.create_book
   when 8
-    puts 'Add music album'
+    app.add_music_album
   when 9
     app.game_create
   end

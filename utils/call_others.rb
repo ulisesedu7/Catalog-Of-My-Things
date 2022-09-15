@@ -1,4 +1,5 @@
 require_relative '../app-methods/label_actions'
+require_relative '../app-methods/music_genre_module'
 
 def list_of_others
   puts 'Do you wish to continue with another option?'
@@ -30,7 +31,7 @@ def new_actions(selection)
   when 2
     create_label
   when 3
-    puts 'Testing2'
+    genre_prompt
   when 0
     puts 'Returning to main menu'
     puts ''
