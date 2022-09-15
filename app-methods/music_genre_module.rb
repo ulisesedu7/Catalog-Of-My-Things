@@ -1,5 +1,5 @@
 require_relative '../methods/item'
-require_relative './music_album'
+require_relative '../methods/music_album'
 
 module MusicGenreModule
   def list_music_albums

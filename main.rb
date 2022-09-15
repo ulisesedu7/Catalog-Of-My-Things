@@ -48,7 +48,7 @@ def main
   loop do
     list_of_options
     option = gets.chomp.to_i
-    if (1..7).include?(option)
+    if (0..9).include?(option)
       actions(option, app)
     else
       puts 'Sorry, wrong option selected'

@@ -1,4 +1,4 @@
-require_relative './music_album'
+require_relative '../methods/music_album'
 require 'json'
 
 module MusicAlbumJson

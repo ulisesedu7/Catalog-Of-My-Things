@@ -1,4 +1,4 @@
-require_relative './genre'
+require_relative '../methods/genre'
 require 'json'
 
 module GenreJson
