@@ -2,13 +2,10 @@ require_relative '../app'
 
 def list_of_options
   puts 'Please choose an option by entering a number:'
-  puts '1 - List all books'
-  puts '2 - List all labels'
-  puts '3 - Add a book'
-  puts '4'
-  puts '5'
-  puts '6'
-  puts '7 - exit'
+  puts '[1] - List all books'
+  puts '[2] - List all labels'
+  puts '[3] - Add a book'
+  puts '[0] - exit'
 end
 
 def actions(option, app)
@@ -30,14 +27,14 @@ def main
   loop do
     list_of_options
     option = gets.chomp.to_i
-    if (1..7).include?(option)
+    if (0..7).include?(option)
       actions(option, app)
     else
       puts 'Sorry, wrong option selected'
       puts ''
       sleep(1)
     end
-    break if option == 7
+    break if option == 0
   end
 
   puts 'Thanks for using the app!'

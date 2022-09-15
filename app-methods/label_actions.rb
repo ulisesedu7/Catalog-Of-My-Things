@@ -7,7 +7,7 @@ module LabelActions
       puts 'No labels have been registered!'
       puts ''
     else
-      labels.each do |label|
+      @labels.each do |label|
         puts "Here's the label #{label}"
       end
     end
