@@ -48,23 +48,18 @@ class App
   include LabelActions
 
   include MusicGenreModule
-  # include GenreJson
 
   def save_data
     save_books(@books)
     save_labels(@labels)
     save_music_albums(@music_albums)
+    save_genres(@genres)
   end
 
   def load_data
     @books = load_books
     @labels = load_labels
     @music_albums = load_music_albums
-    # @genres = load_genres
+    @genres = load_genres
   end
-
-  # def save_data(data_array, _file_name)
-  #   data = data_array.map(&:to_json)
-  #   File.open("#{PATH_TO_JSON}#{data_name}.json", JSON.pretty_generate(data))
-  # end
 end

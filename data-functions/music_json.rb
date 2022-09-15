@@ -6,10 +6,10 @@ def save_music_albums(music_albums)
 
   music_albums.each do |music_album|
     music_album_data.push({
-      publish_date: music_album.publish_date,
-      on_spotify: music_album.on_spotify,
-      title: music_album.title
-    })
+                            publish_date: music_album.publish_date,
+                            on_spotify: music_album.on_spotify,
+                            title: music_album.title
+                          })
   end
 
   update_file('music_albums', music_album_data)

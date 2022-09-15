@@ -1,16 +1,32 @@
 require_relative '../methods/genre'
-require 'json'
+require_relative '../utils/update_file'
 
-module GenreJson
-  def load_genres
-    data = []
-    file = '{PATH_TO_JSON}genres.json'
-    if File.exist?(file) && File.read(file) != ''
-      JSON.parse(File.read(file)).each do |genre|
-        genre = JSON.parse(genre)
-        data << Genre.new(genre['name'], genre['id'])
-      end
-    end
-    data
+def save_genres(genres)
+  genres_data = []
+
+  genres.each do |genre|
+    genres_data.push({
+                       name: genre.name
+                     })
   end
+
+  update_file('genres', genres_data)
+end
+
+def load_genres
+  loaded_genres = []
+
+  unless File.zero?('./data-storage/genres.json')
+    genres_file = File.open('./data-storage/genres.json')
+    hash_genres = JSON.parse(genres_file.read)
+  end
+
+  unless hash_genres.empty?
+    hash_genres.each do |genre|
+      loaded_genres << Genre.new(genre['name'])
+    end
+    genres_file.close
+  end
+
+  loaded_genres
 end

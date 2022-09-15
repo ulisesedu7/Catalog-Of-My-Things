@@ -16,21 +16,26 @@ module BooksActions
   end
 
   def create_book
+    @publish_date = []
     puts 'Add a new book!'
     puts ''
     puts 'Enter the book\'s title: '
     title = gets.chomp
 
-    puts 'Enter the published date in YYYY-MM-DD format: '
-    publish_date = gets.chomp
-    date_validation(publish_date)
+    loop do
+      puts 'Enter the published date in YYYY-MM-DD format: '
+      @publish_date = gets.chomp
+      break if date_validation(@publish_date)
+
+      puts 'please enter a valid date'
+    end
 
     puts 'Please enter the publisher: '
     publisher = gets.chomp
 
     cover_state = change_cover
 
-    book = Book.new(publish_date, publisher, cover_state, title)
+    book = Book.new(@publish_date, publisher, cover_state, title)
 
     @books.push(book)
     puts 'The book has been created'

@@ -1,6 +1,7 @@
 require_relative '../methods/item'
 require_relative '../methods/music_album'
 require_relative '../utils/call_others'
+require_relative '../utils/date_validation'
 
 module MusicGenreModule
   def list_music_albums
@@ -27,24 +28,32 @@ module MusicGenreModule
         puts "Name: #{genre.name}"
       end
     end
+    puts ''
   end
 
   def add_music_album
+    @publish_date = []
     puts 'Please enter the title of the music album: '
     title = gets.chomp
-    puts 'Please enter the publish date of the music album in YYYY-MM-DD format: '
-    publish_date = gets.chomp
+
+    loop do
+      puts 'Please enter the publish date of the music album in YYYY-MM-DD format: '
+      @publish_date = gets.chomp
+      break if date_validation(@publish_date)
+
+      puts 'please enter a valid date'
+    end
+
     puts 'Is the music album on Spotify? (true/false)'
     on_spotify = on_spotify_prompt
-  
-    music = MusicAlbum.new(publish_date, on_spotify, title)
+
+    music = MusicAlbum.new(@publish_date, on_spotify, title)
     @music_albums.push(music)
-  
+
     puts 'Music album added successfully'
     puts ''
     call_others
   end
-
 
   def genre_prompt
     puts 'Please enter the genre of the music album: '
@@ -72,4 +81,3 @@ def on_spotify_prompt
   end
   on_spotify
 end
-
