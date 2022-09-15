@@ -10,7 +10,7 @@
 
 ## Live Demo
 
-- You can watch a video demo of the app [here]()
+- You can watch a video demo of the app [here](https://drive.google.com/file/d/1Ziy7zpl9LYX-WYPo8CIbpTukofusr8Sf/view?usp=sharing)
 
 ## Setup
 
