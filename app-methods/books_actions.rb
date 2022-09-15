@@ -9,10 +9,10 @@ module BooksActions
       puts ''
     else
       @books.each do |book|
-        puts "Here's the book #{book.title} that was published on #{book.publish_date}"
+        puts "Here's the book \"#{book.title}\" that was published on \"#{book.publish_date}\""
       end
+      puts ''
     end
-    puts ''
   end
 
   def create_book

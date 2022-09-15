@@ -23,6 +23,7 @@ def main
   app = App.new
   puts 'Welcome to our app!'
   puts ''
+  app.load_data
 
   loop do
     list_of_options
@@ -36,6 +37,8 @@ def main
     end
     break if option == 0
   end
+  # Save data Functions
+  app.save_data
 
   puts 'Thanks for using the app!'
 end
