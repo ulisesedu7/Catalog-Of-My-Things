@@ -5,7 +5,7 @@ class Item
 
   attr_reader :id, :publish_date
 
-  def initialize(publish_date, id, archived: false)
+  def initialize(publish_date, _id, archived: false)
     @id = Random.rand(1..10_000)
 
     @publish_date = Date.parse(publish_date)
@@ -25,7 +25,7 @@ class Item
   def add_label(label)
     @label = label
   end
-  
+
   # Item specific methods
   def can_be_archived?
     return true if DateTime.today.year - @publish_date.year > 10

@@ -6,7 +6,7 @@ require_relative './data-functions/book_data'
 require_relative './data-functions/label_data'
 
 class App
-  attr_accessor :books, :labels 
+  attr_accessor :books, :labels
 
   def initialize
     @books = []
@@ -25,5 +25,4 @@ class App
     @books = load_books
     @labels = load_labels
   end
-
 end

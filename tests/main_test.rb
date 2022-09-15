@@ -35,7 +35,7 @@ def main
       puts ''
       sleep(1)
     end
-    break if option == 0
+    break if option.zero?
   end
   # Save data Functions
   app.save_data

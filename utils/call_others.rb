@@ -11,11 +11,11 @@ def call_others
 
   case selection
   when 1
-    puts ''
+    puts 'Testing'
   when 2
     create_label
   when 3
-    puts ''
+    puts 'Testing2'
   when 0
     puts 'Returning to main menu'
     puts ''

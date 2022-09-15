@@ -5,13 +5,12 @@ module LabelActions
     puts 'List of labels: '
     if @labels.empty?
       puts 'No labels have been registered!'
-      puts ''
     else
       @labels.each do |label|
         puts "Here's the label \"#{label.title}\" and it's color \"#{label.color}\""
       end
-      puts ''
     end
+    puts ''
   end
 
   def create_label
@@ -28,7 +27,7 @@ module LabelActions
     @labels.push(label)
     puts 'The label has been added'
     puts ''
-    
+
     call_others
   end
 end

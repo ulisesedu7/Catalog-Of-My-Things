@@ -6,9 +6,9 @@ def save_labels(labels)
 
   labels.each do |label|
     labels_data.push({
-                      title: label.title,
-                      color: label.color
-                    })
+                       title: label.title,
+                       color: label.color
+                     })
   end
   update_file('labels', labels_data)
 end

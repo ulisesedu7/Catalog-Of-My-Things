@@ -1,3 +1,3 @@
-def date_validation(date)
-  return true
+def date_validation(_date)
+  true
 end
