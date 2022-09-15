@@ -1,3 +1,4 @@
+require 'date'
 class Item
   attr_accessor :genre, :author, :label, :publish_date, :title
 
@@ -5,7 +6,7 @@ class Item
 
   attr_writer :label, :author, :source, :genre
 
-  def initialize(publish_date, id = nil, archived = nil, title = nil)
+  def initialize(publish_date, _id = nil, archived = nil, title = nil)
     @id = rand(1..10_000)
     @title = title || 'Untitled'
     @publish_date = publish_date

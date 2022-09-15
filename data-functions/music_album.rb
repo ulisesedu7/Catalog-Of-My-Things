@@ -1,9 +1,10 @@
 require_relative '../methods/item'
 require 'json'
+
 class MusicAlbum < Item
   attr_accessor :on_spotify
 
-  def initialize(publish_date, on_spotify, id = Random.rand(1..10_000), archived: false)
+  def initialize(publish_date, on_spotify, id = Random.rand(1..1_000_000), archived: false)
     super(publish_date, id, archived:)
     @on_spotify = on_spotify
   end
@@ -31,6 +32,6 @@ class MusicAlbum < Item
   end
 
   def can_be_archived?
-    supper && @on_spotify == true
+    super && @on_spotify == 'Yes'
   end
 end
