@@ -54,25 +54,25 @@ class App
     @genres = load_genres
   end
 
-  def add_additional_info(item)
-    option = 0
-    loop do
-      puts 'Please select an option'
-      puts '1. Add label'
-      puts '2. Add author'
-      puts '3. Add genre'
-      puts '4. Exit'
-      option = gets.chomp.to_i
-      case option
-      when 1 then item = label_promp(item)
-      when 2 then item = author_promp(item)
-      when 3 then item = genre_promp(item)
-      when 4 then break
-      else puts 'Invalid option'
-      end
-    end
-    item
-  end
+  # def add_additional_info(item)
+  #   option = 0
+  #   loop do
+  #     puts 'Please select an option'
+  #     puts '1. Add label'
+  #     puts '2. Add author'
+  #     puts '3. Add genre'
+  #     puts '4. Exit'
+  #     option = gets.chomp.to_i
+  #     case option
+  #     when 1 then item = label_promp(item)
+  #     when 2 then item = author_promp(item)
+  #     when 3 then item = genre_promp(item)
+  #     when 4 then break
+  #     else puts 'Invalid option'
+  #     end
+  #   end
+  #   item
+  # end
 
   def save_data(data_array, _file_name)
     data = data_array.map(&:to_json)
