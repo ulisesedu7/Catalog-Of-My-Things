@@ -2,25 +2,32 @@ require_relative '../app'
 
 def list_of_options
   puts 'Please choose an option by entering a number:'
-  puts '1 - Create a game'
-  puts '2 - Display games'
-  puts '3 - Create an author'
-  puts '4 - Display authors'
-  puts '5'
-  puts '6'
-  puts '7 - exit'
+  puts '[1] - List all books'
+  puts '[2] - List all labels'
+  puts '[3] - List all games'
+  puts '[4] - List all authors'
+  puts '[5] - Add a book'
+  puts '[6] - Create a game'
+  puts '[7] - Create author'
+  puts '[0] - exit'
 end
 
 def actions(option, app)
   case option
   when 1
-    app.game_create
+    app.list_all_books
   when 2
-    app.game_display
+    app.list_labels
   when 3
-    app.author_create
+    app.game_display
   when 4
     app.author_display
+  when 5
+    app.create_book
+  when 6
+    app.game_create
+  when 7
+    app.author_create
   end
 end
 
@@ -28,19 +35,22 @@ def main
   app = App.new
   puts 'Welcome to our app!'
   puts ''
+  app.load_data
 
   loop do
     list_of_options
     option = gets.chomp.to_i
-    if (1..7).include?(option)
+    if (0..7).include?(option)
       actions(option, app)
     else
       puts 'Sorry, wrong option selected'
       puts ''
       sleep(1)
     end
-    break if option == 7
+    break if option.zero?
   end
+  # Save data Functions
+  app.save_data
 
   puts 'Thanks for using the app!'
 end
