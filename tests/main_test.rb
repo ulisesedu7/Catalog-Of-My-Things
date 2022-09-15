@@ -12,6 +12,7 @@ def list_of_options
   puts '[0] - exit'
 end
 
+# rubocop:disable Metrics/CyclomaticComplexity
 def actions(option, app)
   case option
   when 1
@@ -30,6 +31,7 @@ def actions(option, app)
     app.author_create
   end
 end
+# rubocop:enable Metrics/CyclomaticComplexity
 
 def main
   app = App.new
@@ -40,7 +42,7 @@ def main
   loop do
     list_of_options
     option = gets.chomp.to_i
-    if (0..7).include?(option)
+    if (1..7).include?(option)
       actions(option, app)
     else
       puts 'Sorry, wrong option selected'
