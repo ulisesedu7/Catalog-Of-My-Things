@@ -29,10 +29,12 @@ def new_actions(selection)
   case selection
   when 1
     author_create
+    call_others
   when 2
     create_label
   when 3
     genre_prompt
+    call_others
   when 0
     puts 'Returning to main menu'
     puts ''
