@@ -1,4 +1,5 @@
 require_relative './app'
+require_relative './utils/call_others'
 
 def list_of_options
   puts 'Please choose an option by entering a number:'
@@ -48,7 +49,8 @@ def main
   loop do
     list_of_options
     option = gets.chomp.to_i
-    if (0..9).include?(option)
+    if (0..10).include?(option)
+      puts ''
       actions(option, app)
     else
       puts 'Sorry, wrong option selected'

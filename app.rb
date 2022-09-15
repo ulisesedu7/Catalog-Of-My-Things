@@ -21,6 +21,9 @@ require_relative './app-methods/game_actions'
 require_relative './app-methods/label_actions'
 require_relative './app-methods/music_genre_module'
 
+# Utils
+require_relative './utils/call_others'
+
 class App
   attr_accessor :games, :authors, :books, :labels
 
