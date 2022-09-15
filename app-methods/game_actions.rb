@@ -23,6 +23,7 @@ module GameActions
     write_games_data
 
     print 'Game created successfully!'
+    puts ''
     call_others
   end
 

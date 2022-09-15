@@ -18,6 +18,7 @@ module AuthorActions
     write_authors_data
 
     print 'Author created successfully!'
+    puts ''
   end
 
   def author_create_options
