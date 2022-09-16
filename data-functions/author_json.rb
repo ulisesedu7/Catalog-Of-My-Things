@@ -1,5 +1,5 @@
 require 'json'
-require_relative './author'
+require_relative '../methods/author'
 
 module AuthorJson
   def write_authors_data

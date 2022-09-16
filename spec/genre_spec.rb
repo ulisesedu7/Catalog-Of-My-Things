@@ -1,29 +1,21 @@
-require_relative '../data-functions/music_album'
-require_relative '../data-functions/music_genre_module'
-require_relative '../data-functions/genre'
+require_relative '../methods/music_album'
+require_relative '../methods/genre'
 
 describe Genre do
-  album = Genre.new('Life')
-  item = MusicAlbum.new('2022-08-07', true)
+  genre = Genre.new('Life')
+  item = MusicAlbum.new('2022-08-07', true, 'Test')
 
   it 'expect album to be instance of Genre' do
-    expect(album).to be_instance_of Genre
+    expect(genre).to be_instance_of Genre
   end
 
   it 'expect add_items to add item in items array' do
-    album.add_item(item)
+    genre.add_item(item)
 
-    expect(album.items.length).to eq(1)
+    expect(genre.items.length).to eq(1)
   end
 
-  it 'expect item genre to be equal album' do
-    expect(item.genre).to eq(album)
-  end
-
-  it 'expect add_items to add item in items array' do
-    item2 = Item.new('2000-12-12', true)
-    album.add_item(item2)
-
-    expect(album.items.length).to eq(2)
+  it 'Expect genre name to be "Life"' do
+    expect(genre.name).to eq('Life')
   end
 end

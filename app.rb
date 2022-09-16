@@ -1,28 +1,37 @@
-require_relative './data-functions/music_json'
-require_relative './data-functions/music_genre_module'
-require_relative './data-functions/genre_json'
-require_relative './data-functions/music_album'
-require_relative './methods/game'
-require_relative './methods/game_actions'
-require_relative './methods/game_json'
+# Pure Methods
 require_relative './methods/author'
-require_relative './methods/author_json'
-require_relative './methods/author_actions'
 require_relative './methods/book'
+require_relative './methods/game'
+require_relative './methods/genre'
 require_relative './methods/label'
-require_relative './app-methods/books_actions'
-require_relative './app-methods/label_actions'
+require_relative './methods/music_album'
+
+# Data Methods
+require_relative './data-functions/author_json'
 require_relative './data-functions/book_data'
+require_relative './data-functions/game_json'
+require_relative './data-functions/genre_json'
 require_relative './data-functions/label_data'
+require_relative './data-functions/music_json'
+
+# App methods
+require_relative './app-methods/author_actions'
+require_relative './app-methods/books_actions'
+require_relative './app-methods/game_actions'
+require_relative './app-methods/label_actions'
+require_relative './app-methods/music_genre_module'
+
+# Utils
+require_relative './utils/call_others'
 
 class App
-  attr_accessor :games, :authors, :books, :labels
+  attr_accessor :games, :authors, :books, :labels, :music_albums, :genres
 
   def initialize
     @books = []
     @labels = []
     @games = []
-    @music_album = []
+    @music_albums = []
     @genres = []
     @authors = []
 
@@ -38,44 +47,19 @@ class App
   include BooksActions
   include LabelActions
 
-  include MusicAlbumJson
   include MusicGenreModule
-  include GenreJson
 
   def save_data
     save_books(@books)
     save_labels(@labels)
+    save_music_albums(@music_albums)
+    save_genres(@genres)
   end
 
   def load_data
     @books = load_books
     @labels = load_labels
-    @music_album = load_music_albums
+    @music_albums = load_music_albums
     @genres = load_genres
-  end
-
-  def add_additional_info(item)
-    option = 0
-    loop do
-      puts 'Please select an option'
-      puts '1. Add label'
-      puts '2. Add author'
-      puts '3. Add genre'
-      puts '4. Exit'
-      option = gets.chomp.to_i
-      case option
-      when 1 then item = label_promp(item)
-      when 2 then item = author_promp(item)
-      when 3 then item = genre_promp(item)
-      when 4 then break
-      else puts 'Invalid option'
-      end
-    end
-    item
-  end
-
-  def save_data(data_array, _file_name)
-    data = data_array.map(&:to_json)
-    File.open("#{PATH_TO_JSON}#{data_name}.json", JSON.pretty_generate(data))
   end
 end

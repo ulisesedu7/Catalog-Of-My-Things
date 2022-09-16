@@ -1,21 +1,40 @@
 require_relative '../app-methods/label_actions'
+require_relative '../app-methods/music_genre_module'
+require_relative '../app-methods/author_actions'
 
-def call_others
+def list_of_others
   puts 'Do you wish to continue with another option?'
   puts '[1] - Add an Author'
   puts '[2] - Add a Label'
   puts '[3] - Add a Genre'
   puts '[0] - Go back to main menu'
+end
 
+def call_others
+  list_of_others
   selection = gets.chomp.to_i
+  if (0..3).include?(selection)
+    new_actions(selection)
+  elsif selection.zero?
+    puts 'Returning to main menu'
+    puts ''
+  else
+    puts 'Sorry, wrong option selected'
+    puts ''
+    sleep(1)
+  end
+end
 
+def new_actions(selection)
   case selection
   when 1
-    puts 'Testing'
+    author_create
+    call_others
   when 2
     create_label
   when 3
-    puts 'Testing2'
+    genre_prompt
+    call_others
   when 0
     puts 'Returning to main menu'
     puts ''

@@ -1,4 +1,1 @@
-[
-    "{\"json_class\":\"MusicAlbum\",\"title\":\"Enter Sandman\",\"publish_date\":\"1988\",\"on_spotify\":\"Yes\",\"id\":268697,\"archived\":{\"archived\":{\"archived\":false}},\"genre\":null,\"label\":null,\"author\":null}",
-    "{\"json_class\":\"MusicAlbum\",\"title\":\"Clenching the fist of disents\",\"publish_date\":\"2002\",\"on_spotify\":\"Yes\",\"id\":47463,\"archived\":{\"archived\":false},\"genre\":null,\"label\":{\"json_class\":\"Label\",\"id\":487012,\"title\":\"CD\",\"color\":\"White\"},\"author\":{\"json_class\":\"Author\",\"id\":650156,\"first_name\":\"Miguel\",\"last_name\":\"Giardino\"}}"
-  ]
+[{"publish_date":"1998-09-12","on_spotify":"yes","title":"Big J"}]
